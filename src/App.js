@@ -8,19 +8,14 @@ import HatsShop from './routes/shop/hats shop/hats.shop.comp';
 import SneakerShop from './routes/shop/sneaker shop/sneaker.shop';
 import WomansShop from './routes/shop/womans shop/woamns.shop.comp';
 import Authentication from './routes/authentication/authentication.comp';
-
-const Shop = () => {
-  return(
-    <h1>Shop</h1>
-  )
-}
+import ShopOverview from './comps/shop overview/shop.overview';
 
  const App = () => {
   return(
     <Routes>
       <Route path='/' element={<Navigation />}>
         <Route  index element={<Home/>}/>
-        <Route path='shop' element={<Shop />} />
+        <Route path='shop' element={<ShopOverview />} />
         <Route path='auth' element={<Authentication />} />
         <Route path='Jackets' element={<JacketShop />} />
         <Route path='Mens' element={<MensShop />} />

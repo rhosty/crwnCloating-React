@@ -1,8 +1,22 @@
-import { Fragment } from "react"
+import { Fragment, useContext, useState, useEffect } from "react"
+import { auth } from "../../utills/firebase/firebase"
 import { Outlet, Link } from "react-router-dom"
 import { ReactComponent as Crown} from '../../assets/crown.svg'
+import { UserContext } from "../../contexts/user.ctx"
 import './navigation.style.scss'
+import { signoutUser } from "../../utills/firebase/firebase"
+import  CartIcon  from '../../comps/cart-icon/card.icon.comp'
+
+
 const Navigation = () => {
+   
+
+    const  { currentUser } = useContext(UserContext)
+    
+    const signOutHandler = () => {
+        signoutUser()
+    }
+  
     return(
         <Fragment>
             <div className="navigation">
@@ -17,9 +31,16 @@ const Navigation = () => {
                     <Link className="nav-link" to='/contact'>
                         CONTACT
                     </Link>
-                    <Link className="nav-link" to='/auth'>
-                        SIGN IN
-                    </Link>
+                    {
+                        currentUser ? (
+                            <span onClick={signOutHandler} className="nav-link">Sign Out</span>)
+                            : (<Link className="nav-link" to='/auth'>
+                            SIGN IN
+                        </Link>)
+                        
+                    }
+                    <CartIcon />
+                    
                 </div>
             </div>
             <Outlet />

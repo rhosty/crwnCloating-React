@@ -12,7 +12,7 @@ const Authentication = () => {
     const handleRedirectResult = async () => {
       const result = await getRedirectResult(auth);
       if (result.user) {
-        const userDocRef = await createUserDocFromAuth(result.user);
+        await createUserDocFromAuth(result.user);
       }
     };
   

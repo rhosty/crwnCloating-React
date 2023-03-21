@@ -7,6 +7,7 @@ import './signin.styles.scss'
 import Button from '../button/button.comp'
 import {getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { findAllInRenderedTree } from "react-dom/test-utils";
+
 const defaultForm = {
     
     email: '',
@@ -15,16 +16,16 @@ const defaultForm = {
 }
 
 const SignInForm = () =>{
-
+  
     const signInWithGoogle = async () => {
-        const { user } = await signInWithGooglePopup();
-        const userDocRef = await createUserDocFromAuth(user);
+         await signInWithGooglePopup();
+        
       };
 
     const [formFields, setFormFields] = useState(defaultForm);
     const { email, password, } = formFields; 
-    console.log(formFields)
-
+    
+      
     const resetFormFields = () => {
         setFormFields(defaultForm)
     }
@@ -33,9 +34,13 @@ const SignInForm = () =>{
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-           const response = await signInAuthWithEmailAndPassword(email, password)
-           console.log(response)
+           const {user} = await signInAuthWithEmailAndPassword(email, password);
+           console.log(user)
           resetFormFields()
+          
+          
+          
+          
         } catch (error) {
            switch(error.code){
             case 'auth/wrong-password':
@@ -58,6 +63,8 @@ const SignInForm = () =>{
         setFormFields({...formFields, [name]: value});
         
     }
+
+    
         
    
 
