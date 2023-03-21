@@ -14,14 +14,15 @@ const Navigation = () => {
    
 
     const { currentUser } = useContext(UserContext)
-    const [isOpen, setIsOpen] = useState(false);
+    const { isOpen } = useContext(CartContext)
+    
 
     const signOutHandler = () => {
         signoutUser()
     }
 
     const toogleHandler = () => {
-       setIsOpen(!isOpen)
+        
     }
   
     return(
@@ -52,7 +53,7 @@ const Navigation = () => {
                     
                 </div>
                 {
-                    isOpen ?(<DropDown />) : ''
+                    isOpen && <DropDown />
                 }
                 
             </div>
