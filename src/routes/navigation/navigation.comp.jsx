@@ -6,15 +6,22 @@ import { UserContext } from "../../contexts/user.ctx"
 import './navigation.style.scss'
 import { signoutUser } from "../../utills/firebase/firebase"
 import  CartIcon  from '../../comps/cart-icon/card.icon.comp'
+import DropDown from "../../comps/dropdown/dropdown.comp"
+import { CartContext } from "../../contexts/cart.ctx"
 
 
 const Navigation = () => {
    
 
-    const  { currentUser } = useContext(UserContext)
-    
+    const { currentUser } = useContext(UserContext)
+    const [isOpen, setIsOpen] = useState(false);
+
     const signOutHandler = () => {
         signoutUser()
+    }
+
+    const toogleHandler = () => {
+       setIsOpen(!isOpen)
     }
   
     return(
@@ -39,9 +46,15 @@ const Navigation = () => {
                         </Link>)
                         
                     }
-                    <CartIcon />
+                    <CartIcon toogleHandler={toogleHandler}>
+                        
+                    </CartIcon>
                     
                 </div>
+                {
+                    isOpen ?(<DropDown />) : ''
+                }
+                
             </div>
             <Outlet />
         </Fragment>
