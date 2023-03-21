@@ -8,12 +8,14 @@ const ShopOverview = () => {
     const {products} = useContext(ProductContext)
     
     return(
+      <div>
+        <h2>Hats</h2>
       <div className="products-container">
-        {/* <h2>Hats</h2> */}
-        {products.map((product) => {
+        {products.slice(0,4).map((product) => {
             return(
                 <ProductCard key={product.id} product={product}/>
             )})}
+      </div>
       </div>
     )
 

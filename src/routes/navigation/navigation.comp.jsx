@@ -52,11 +52,12 @@ const Navigation = () => {
                     </CartIcon>
                     
                 </div>
-                {
-                    isOpen && <DropDown />
-                }
+               
                 
             </div>
+            {
+                    isOpen && <DropDown />
+                }
             <Outlet />
         </Fragment>
         

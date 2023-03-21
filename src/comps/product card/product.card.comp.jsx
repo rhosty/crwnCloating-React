@@ -1,16 +1,41 @@
 import './product.card.style.scss'
 import Button from '../button/button.comp'
+import { useContext, useState, useEffect } from 'react';
+import { CartInfoContext } from '../../contexts/cart.info.ctx';
 
 const ProductCard = ({product}) => {
-        const { name, price, imageUrl } = product;
+      const { name, price, imageUrl, quantity } = product;
+
+      const {cartInfo, setCartInfo} = useContext(CartInfoContext)
+      
+
+     
+
+      // const addToCart = () => {
+      //   setCartInfo({name, price, imageUrl})
+      // }
+
+      const addToCart = () => {
+        const newProduct = { name, price, imageUrl, quantity };
+        const updatedCartInfo = [...cartInfo, newProduct];
+        console.log(name)
+        
+        
+        // {name.includes(cartInfo.name) ? console.log('cartInfo'): console.log("works")}
+        setCartInfo(updatedCartInfo);
+        
+        
+      }
+
         return (
-          <div className='product-card-container'>
+          <div key={name} className='product-card-container'>
             <img src={imageUrl} alt={`${name}`} />
             <div className='footer'>
               <span className='name'>{name}</span>
+              <span>{quantity}</span>
               <span className='price'>{price}</span>
             </div>
-            <Button buttonType='inverted'>Add to card</Button>
+            <Button onClick={addToCart} buttonType='inverted'>Add to card</Button>
           </div>
         );
       };
