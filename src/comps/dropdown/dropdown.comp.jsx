@@ -35,7 +35,7 @@ const DropDown = () => {
                 <span>{name}</span>
                 <span>({itemFrequency[name]})</span>
                 <span>{price}</span>
-                <Bin />
+                <Bin />  
               </div>
             ))}
             <Button buttonType='inverted'>Checkout</Button>

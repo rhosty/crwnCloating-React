@@ -8,10 +8,10 @@ const Bin = () => {
     const {cartInfo, setCartInfo} = useContext(CartInfoContext)
 
     const removeHandler = (event) => {
-    
+      console.log(cartInfo)
       }
     return(
-        <TrashBin onClick={removeHandler} className='bin' />
+        <TrashBin value={cartInfo.name} onClick={removeHandler} className='bin' />
     )
 }
 
