@@ -8,6 +8,7 @@ import Button from '../button/button.comp'
 import {getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { findAllInRenderedTree } from "react-dom/test-utils";
 
+
 const defaultForm = {
     
     email: '',
@@ -63,11 +64,6 @@ const SignInForm = () =>{
         setFormFields({...formFields, [name]: value});
         
     }
-
-    
-        
-   
-
     return (
       
         <div className="sign-up-container">

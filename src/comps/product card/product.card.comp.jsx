@@ -5,7 +5,6 @@ import { CartInfoContext } from '../../contexts/cart.info.ctx';
 
 const ProductCard = ({product}) => {
       const { name, price, imageUrl, quantity } = product;
-
       const {cartInfo, setCartInfo} = useContext(CartInfoContext)
       
 
@@ -18,10 +17,7 @@ const ProductCard = ({product}) => {
       const addToCart = () => {
         const newProduct = { name, price, imageUrl, quantity };
         const updatedCartInfo = [...cartInfo, newProduct];
-        console.log(name)
-        
-        
-        // {name.includes(cartInfo.name) ? console.log('cartInfo'): console.log("works")}
+        console.log(cartInfo)
         setCartInfo(updatedCartInfo);
         
         
@@ -32,7 +28,6 @@ const ProductCard = ({product}) => {
             <img src={imageUrl} alt={`${name}`} />
             <div className='footer'>
               <span className='name'>{name}</span>
-              <span>{quantity}</span>
               <span className='price'>{price}</span>
             </div>
             <Button onClick={addToCart} buttonType='inverted'>Add to card</Button>

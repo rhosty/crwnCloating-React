@@ -4,9 +4,14 @@ import { CartInfoContext } from '../../contexts/cart.info.ctx'
 import './bin.style.scss'
 
 const Bin = () => {
-   
+
+    const {cartInfo, setCartInfo} = useContext(CartInfoContext)
+
+    const removeHandler = (event) => {
+    
+      }
     return(
-        <TrashBin className='bin' />
+        <TrashBin onClick={removeHandler} className='bin' />
     )
 }
 
