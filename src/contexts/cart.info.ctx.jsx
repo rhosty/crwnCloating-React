@@ -5,7 +5,7 @@ export const CartInfoContext = createContext({
         name: [],
         price: [],
         imageUrl: [],
-        quyntiy: [],
+        quantity: [],
         }
   })
 

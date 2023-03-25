@@ -8,6 +8,8 @@ import { UserProvider } from './contexts/user.ctx';
 import { ProductProvider } from './contexts/products.ctx';
 import { CartProvider } from './contexts/cart.ctx';
 import { CartInfoProvider } from './contexts/cart.info.ctx';
+import { itemQuantityContext } from './contexts/itemQantity.ctx';
+import { itemQuantityProvider } from './contexts/itemQantity.ctx';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,11 +18,13 @@ root.render(
     <BrowserRouter>
     <ProductProvider>
     <UserProvider>
+    <itemQuantityProvider>
     <CartProvider>
     <CartInfoProvider>
       <App />
     </CartInfoProvider>
     </CartProvider>
+    </itemQuantityProvider>
     </UserProvider>
     </ProductProvider>
     </BrowserRouter>

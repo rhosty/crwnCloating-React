@@ -1,18 +1,31 @@
-import { ReactComponent as TrashBin } from '../../assets/bin.svg'
-import { useContext, useState } from 'react'
-import { CartInfoContext } from '../../contexts/cart.info.ctx'
-import './bin.style.scss'
 
-const Bin = () => {
+import { ReactComponent as TrashBin } from '../../assets/bin.svg';
+import { useContext } from 'react';
+import { CartInfoContext } from '../../contexts/cart.info.ctx';
+import './bin.style.scss';
 
-    const {cartInfo, setCartInfo} = useContext(CartInfoContext)
+const Bin = ({ name, quantity, updateQuantity }) => {
+  const { cartInfo, setCartInfo } = useContext(CartInfoContext);
 
-    const removeHandler = (event) => {
-      console.log(cartInfo)
+  const removeHandler = () => {
+    const newCartInfo = [...cartInfo];
+    const index = newCartInfo.findIndex((item) => item.name === name);
+  
+    if (index !== -1) {
+      const item = newCartInfo[index];
+  
+      if (item.quantity > 0) {
+        item.quantity--;
+        updateQuantity(item.name, item.quantity);
+      } else {
+        newCartInfo.splice(index, 1);
+        setCartInfo(newCartInfo);
       }
-    return(
-        <TrashBin value={cartInfo.name} onClick={removeHandler} className='bin' />
-    )
-}
+    }
+  };
 
-export default Bin
+  return <TrashBin onClick={removeHandler} className='bin' />;
+};
+
+export default Bin;
+

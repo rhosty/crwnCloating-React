@@ -26,6 +26,7 @@
     height: 340px;
     display: flex;
     flex-direction: column;
+    // justify-content: space-between;
     padding: 20px;
     border: 1px solid black;
     background-color: white;
@@ -36,8 +37,24 @@
     .empty-message {
       font-size: 18px;
       margin: 50px auto;
+      .closed{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+      }
     }
-   
+    .items-container{
+      height: 240px;
+      display: flex;
+      flex-direction: column;
+      overflow: scroll;
+    }
+
+    .closed{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
 
     img{
       height:30px;
