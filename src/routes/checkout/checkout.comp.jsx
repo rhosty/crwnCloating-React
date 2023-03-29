@@ -2,15 +2,12 @@
 
 import { useContext, Fragment } from 'react';
 import { CartInfoContext } from '../../contexts/cart.info.ctx';
-import{ ItemQuantityContext } from '../../contexts/itemQantity.ctx';
 import CartLis from '../../comps/cart-list/cart.list.comp';
 import './checkout.style.scss';
-import ItemsContainer from '../../comps/items-container/itemContainer.comp';
 
 
 const Checkout = () => {
   const { cartInfo, setCartInfo } = useContext(CartInfoContext);
-    const { itemQuantity, setItemQuantity } = useContext(ItemQuantityContext);
 
   return (
     <Fragment>
