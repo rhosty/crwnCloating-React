@@ -9,6 +9,9 @@ import './checkout.style.scss';
 const Checkout = () => {
   const { cartInfo, setCartInfo } = useContext(CartInfoContext);
 
+  
+    
+
   return (
     <Fragment>
     {cartInfo.length ? ( <div className='checkout'>

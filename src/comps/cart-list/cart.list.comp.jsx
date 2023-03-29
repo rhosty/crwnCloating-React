@@ -1,14 +1,26 @@
 import { CartInfoContext } from "../../contexts/cart.info.ctx"
 import { useContext, useState, useEffect } from "react"
 import { ItemQuantityContext } from "../../contexts/itemQantity.ctx"
+import './cartlist.style.scss'
+  
 const CartLis = () => {
 
     const { cartInfo } = useContext(CartInfoContext)
     const { itemQuantity } = useContext(ItemQuantityContext)
     const [quantity, setQuantity] = useState({});
     const {imageUrl, name, price} = cartInfo
+    const [filteredCartInfo, setFilteredCartInfo] = useState([]);
+
     console.log(itemQuantity)
 
+    useEffect(() => {
+      cartInfo &&
+        setFilteredCartInfo(
+          cartInfo.filter(
+            (item, index) => cartInfo.findIndex((i) => i.name === item.name) === index
+          )
+        );
+    }, [cartInfo]);
 
     useEffect(() => {
         setQuantity(
@@ -22,9 +34,10 @@ const CartLis = () => {
       }, [cartInfo]);
 
     return(
-        <div>{cartInfo.map(({imageUrl, name, price}) => (
+        <div className='checkout-container'>
+          {filteredCartInfo.map(({imageUrl, name, price}) => (
             
-                <div>    
+                <div className='item-container'>    
                 <img src={imageUrl}></img>
                 <p>{name}</p>
                 <p>{price}</p>
