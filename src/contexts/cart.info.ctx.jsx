@@ -1,16 +1,19 @@
 import { createContext, useState } from "react";
 
+
 export const CartInfoContext = createContext({
     cartInfo: {
         name: [],
         price: [],
         imageUrl: [],
-        quantity: [],
+        
         }
   })
 
 export const CartInfoProvider = ({children}) => {
+
     const [cartInfo, setCartInfo] = useState('')
+
     const value = {cartInfo, setCartInfo};
     
     return(

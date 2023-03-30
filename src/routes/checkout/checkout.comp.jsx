@@ -2,14 +2,22 @@
 
 import { useContext, Fragment } from 'react';
 import { CartInfoContext } from '../../contexts/cart.info.ctx';
-import CartLis from '../../comps/cart-list/cart.list.comp';
 import './checkout.style.scss';
+import { ItemQuantityContext } from '../../contexts/itemQantity.ctx';
+
 
 
 const Checkout = () => {
-  const { cartInfo, setCartInfo } = useContext(CartInfoContext);
+  const { cartInfo } = useContext(CartInfoContext);
+  const { itemQuantity } = useContext(ItemQuantityContext);
 
-  
+  const getTotalPrice = () => {
+    let total = 0;
+    cartInfo.forEach((item) => {
+      total += item.name.price * itemQuantity[item.name];
+    });
+    return total;
+  }
     
 
   return (
@@ -23,7 +31,10 @@ const Checkout = () => {
       <p>Remove</p>
     </div>
     <div>
-        <CartLis />
+        
+    </div>
+    <div className="total">
+      <p>TOTAL: ${getTotalPrice()}</p>
     </div>
   </div>): (<h2>Your cart is empty</h2>)}
    </Fragment>
