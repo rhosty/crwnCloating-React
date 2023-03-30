@@ -28,6 +28,8 @@ export const addCartItem = (cartItems, productToAdd) => {
 })
 
 
+
+
   
 
   export const CartProvider = ({children}) => {
