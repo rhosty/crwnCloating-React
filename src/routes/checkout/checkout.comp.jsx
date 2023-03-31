@@ -4,38 +4,53 @@ import { useContext, Fragment } from 'react';
 import { CartInfoContext } from '../../contexts/cart.info.ctx';
 import './checkout.style.scss';
 import { ItemQuantityContext } from '../../contexts/itemQantity.ctx';
-
+import { CartContext } from '../../contexts/cart.ctx';
+import CartItem from '../../comps/cart-item/cart.item.comp'
+import More from '../../assets/greater.png'
+import Less from '../../assets/smaller.png'
+import Close from '../../assets/close.png'
+import CheckOutItem from '../../comps/checkout-item/checkout.item.comp';
 
 
 const Checkout = () => {
-  const { cartInfo } = useContext(CartInfoContext);
+  const { cartItems, cartCount, totalPrice, setCartItems, removeItemFromCart, increaseAmount, decreaseAmount  } = useContext(CartContext);
   const { itemQuantity } = useContext(ItemQuantityContext);
 
-  const getTotalPrice = () => {
-    let total = 0;
-    cartInfo.forEach((item) => {
-      total += item.name.price * itemQuantity[item.name];
-    });
-    return total;
-  }
+
+ 
+
+
     
 
   return (
     <Fragment>
-    {cartInfo.length ? ( <div className='checkout'>
+    {cartItems.length ? ( <div className='checkout-container'>
     <div className="checkout-header">
-      <p>Product</p>
-      <p>Description</p>
-      <p>Quantity</p>
-      <p>Price</p>
-      <p>Remove</p>
+            
+            <div className='header-block'>
+              <span>Product</span>
+            </div>
+            <div className='header-block'>
+              <span>Description</span>
+            </div>
+            <div className='header-block'>
+              <span>Quantity</span>
+            </div>
+            <div className='header-block'>
+              <span>Price</span>
+            </div>
+            <div className='header-block'>
+              <span>Remove</span>
+            </div>
+          
     </div>
     <div>
-        
+      {cartItems.map((cartItem) => 
+        <CheckOutItem key={cartItem.id} cartItem={cartItem}/>      
+      )}
     </div>
-    <div className="total">
-      <p>TOTAL: ${getTotalPrice()}</p>
-    </div>
+      <span className='total'>TOTAL: €{totalPrice}</span>
+   
   </div>): (<h2>Your cart is empty</h2>)}
    </Fragment>
   );
