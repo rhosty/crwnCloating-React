@@ -19,11 +19,14 @@ import Checkout from './routes/checkout/checkout.comp';
         
         <Route index element={<Home/>}/>
         <Route path='dropdown' element={<DropDown/>}></Route>
-        <Route path='shop' element={<ShopOverview />} />
+          <Route path='shop/*' element={<ShopOverview />}>
+
+            
+          </Route> 
         <Route path='auth' element={<Authentication />} />
         <Route path='Jackets' element={<JacketShop />} />
+        <Route path='HATS' element={<HatsShop />} />
         <Route path='Mens' element={<MensShop />} />
-        <Route path='Hats' element={<HatsShop />} />
         <Route path='Sneakers' element={<SneakerShop />} />
         <Route path='Womens' element={<WomansShop />} />   
         <Route path="/checkout" element={<Checkout />} />      
