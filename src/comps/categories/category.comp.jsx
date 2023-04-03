@@ -5,7 +5,7 @@ const CategoryItem = ({ category }) => {
     const {title, imageUrl} = category;
     return(
       
-        <div className="category-container">
+        <div className="category-container-cover">
         <div className='background-image' style={{
           backgroundImage : `url(${imageUrl})`
         }}>
