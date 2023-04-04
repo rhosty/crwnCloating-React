@@ -10,8 +10,8 @@ import { CartProvider } from './contexts/cart.ctx';
 import { CartInfoProvider } from './contexts/cart.info.ctx';
 import { itemQuantityContext } from './contexts/itemQantity.ctx';
 import { itemQuantityProvider } from './contexts/itemQantity.ctx';
-
-
+import {Elements} from '@stripe/react-stripe-js';
+import { StripePromise } from './utills/stripe/stripe';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -20,11 +20,14 @@ root.render(
     <UserProvider>
     <CartProvider>
     <CartInfoProvider>
+      <Elements stripe={StripePromise}>
       <App />
+      </Elements>
     </CartInfoProvider>
     </CartProvider>
     </UserProvider>
     </CategoriesProvider>
+    
     </BrowserRouter>
   </React.StrictMode>
 );

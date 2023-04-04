@@ -10,8 +10,7 @@ import More from '../../assets/greater.png'
 import Less from '../../assets/smaller.png'
 import Close from '../../assets/close.png'
 import CheckOutItem from '../../comps/checkout-item/checkout.item.comp';
-
-
+import PaymentForm from '../../comps/payment-form/payment.from.comp';
 const Checkout = () => {
   const { cartItems, cartCount, totalPrice, setCartItems, removeItemFromCart, increaseAmount, decreaseAmount  } = useContext(CartContext);
   const { itemQuantity } = useContext(ItemQuantityContext);
@@ -50,7 +49,7 @@ const Checkout = () => {
       )}
     </div>
       <span className='total'>TOTAL: €{totalPrice}</span>
-   
+        <PaymentForm />
   </div>): (<h2>Your cart is empty</h2>)}
    </Fragment>
   );
