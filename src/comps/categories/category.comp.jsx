@@ -5,13 +5,13 @@ const CategoryItem = ({ category }) => {
     const {title, imageUrl} = category;
     return(
       
-        <div className="category-container">
+        <div className="category-container-cover">
         <div className='background-image' style={{
           backgroundImage : `url(${imageUrl})`
         }}>
         </div>
         <div className="category-body-container">
-          <Link  to={`${title}`}>
+          <Link  to={`/shop/${title.toLowerCase()}`}>
           <h2>{title}</h2>
           <p>Shop Now</p>
           </Link>

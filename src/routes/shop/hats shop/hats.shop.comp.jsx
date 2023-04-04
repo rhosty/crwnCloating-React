@@ -8,11 +8,10 @@ import ProductCard from '../../../comps/product card/product.card.comp'
 const HatsShop = () => {
     const { categoriesMap} = useContext(CategoriesContext)
     const {hats, id} = categoriesMap
-    console.log(categoriesMap)
     
     return(
         <Fragment>
-        <div  className='shop-container'>
+        <div  className='hats-shop-container'>
            <h1>Hats</h1> 
         <div  className='products-container'>
         

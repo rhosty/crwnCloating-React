@@ -8,9 +8,11 @@ import HatsShop from './routes/shop/hats shop/hats.shop.comp';
 import SneakerShop from './routes/shop/sneaker shop/sneaker.shop';
 import WomansShop from './routes/shop/womans shop/woamns.shop.comp';
 import Authentication from './routes/authentication/authentication.comp';
-import ShopOverview from './comps/shop overview/shop.overview';
+import ShopOverview from './comps/shopoverview/shop.overview';
 import DropDown from './comps/dropdown/dropdown.comp';
 import Checkout from './routes/checkout/checkout.comp';
+import ShopComp from './comps/shop-comp/shop.comp';
+import CategoriesPreview from './routes/categories-preview/categories.preview.comp';
 
  const App = () => {
   return(
@@ -19,13 +21,12 @@ import Checkout from './routes/checkout/checkout.comp';
         
         <Route index element={<Home/>}/>
         <Route path='dropdown' element={<DropDown/>}></Route>
-        <Route path='shop' element={<ShopOverview />} />
+          <Route path='shop/*' element={<ShopComp />}>
+          
+            
+          </Route> 
         <Route path='auth' element={<Authentication />} />
-        <Route path='Jackets' element={<JacketShop />} />
-        <Route path='Mens' element={<MensShop />} />
-        <Route path='Hats' element={<HatsShop />} />
-        <Route path='Sneakers' element={<SneakerShop />} />
-        <Route path='Womens' element={<WomansShop />} />   
+       
         <Route path="/checkout" element={<Checkout />} />      
         </Route>
       
