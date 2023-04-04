@@ -1,23 +1,27 @@
 
 import './hats.shop.style.scss'
-import { useContext, useState } from 'react'
-import { ProductContext } from '../../../contexts/products.ctx'
+import { useContext, useState, Fragment } from 'react'
+import { CategoriesContext } from '../../../contexts/categories'
 import { CartInfoContext } from '../../../contexts/cart.info.ctx'
 import ProductCard from '../../../comps/product card/product.card.comp'
 
 const HatsShop = () => {
-    const {products} = useContext(ProductContext)
+    const { categoriesMap} = useContext(CategoriesContext)
+    const {hats, id} = categoriesMap
+    
     return(
+        <Fragment>
         <div  className='shop-container'>
            <h1>Hats</h1> 
         <div  className='products-container'>
         
-             {products.map((product) => {
+             {hats.map((product) => {
                 return(
-                    <ProductCard  product={product} />
+                    <ProductCard key={product.id}  product={product} />
                 )})}
         </div>  
         </div>   
+        </Fragment>
     )
 }
 
