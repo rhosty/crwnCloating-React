@@ -10,6 +10,7 @@ import More from '../../assets/greater.png'
 import Less from '../../assets/smaller.png'
 import Close from '../../assets/close.png'
 import CheckOutItem from '../../comps/checkout-item/checkout.item.comp';
+import {PaymentElement} from '@stripe/react-stripe-js';
 
 
 const Checkout = () => {
@@ -49,7 +50,11 @@ const Checkout = () => {
         <CheckOutItem key={cartItem.id} cartItem={cartItem}/>      
       )}
     </div>
+      
       <span className='total'>TOTAL: €{totalPrice}</span>
+
+   
+      
    
   </div>): (<h2>Your cart is empty</h2>)}
    </Fragment>
