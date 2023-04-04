@@ -1,5 +1,6 @@
-import '../categories/category.comp.style.scss'
+import './category.comp.style.scss'
 import { Link } from 'react-router-dom';
+// import { CategoryContainer, CategoryContainerCover,BackgroundImage, CategoryBodyContainer } from './category.comp.style.jsx';
 
 const CategoryItem = ({ category }) => {
     const {title, imageUrl} = category;

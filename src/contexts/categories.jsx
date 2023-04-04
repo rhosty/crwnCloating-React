@@ -20,7 +20,6 @@ export const CategoriesProvider = ({children}) => {
        
         const getCatergoriesMap = async () => {
             const categoriesMap = await getCategorisAndDocs()
-            console.log(categoriesMap);
             setCategoriesMap(categoriesMap)
          }
             getCatergoriesMap()
