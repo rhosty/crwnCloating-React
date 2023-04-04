@@ -11,7 +11,7 @@ const HatsShop = () => {
     
     return(
         <Fragment>
-        <div  className='shop-container'>
+        <div  className='hats-shop-container'>
            <h1>Hats</h1> 
         <div  className='products-container'>
         
