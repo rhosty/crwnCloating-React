@@ -54,10 +54,11 @@ const PaymentForm = () => {
 
   return (
     <PaymentContainer>
+      
       <FormContainer onSubmit={PaymentHandler}>
         <h2>Credit Card Payment</h2>
         <input onBlur={getNameHandler} type='text' placeholder='Name On Card'></input>
-      <CardElement className='card-input-container' />
+      <CardElement/>
       <Button>Pay Now</Button>
       </FormContainer>
     </PaymentContainer>
