@@ -5,6 +5,7 @@ import { PaymentContainer, FormContainer } from './payment.form.styles.jsx';
 import { CartContext } from '../../contexts/cart.ctx';
 import { useContext, useState } from 'react';
 
+
 const PaymentForm = () => {
 
     const {cartItems, totalPrice} = useContext(CartContext)
@@ -58,7 +59,9 @@ const PaymentForm = () => {
       <FormContainer onSubmit={PaymentHandler}>
         <h2>Credit Card Payment</h2>
         <input onBlur={getNameHandler} type='text' placeholder='Name On Card'></input>
-      <CardElement/>
+        <CardElement/> 
+        
+      {/* <CardElement/> */}
       <Button>Pay Now</Button>
       </FormContainer>
     </PaymentContainer>
