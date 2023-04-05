@@ -1,9 +1,10 @@
-import { CardElement, useStripe, useElements   } from '@stripe/react-stripe-js';
+import { CardElement, CardNumberElement, useStripe, useElements, CardCvcElement, CardExpiryElement   } from '@stripe/react-stripe-js';
 import Button from '../button/button.comp';
 import './payment.form.styles.jsx'
-import { PaymentContainer, FormContainer } from './payment.form.styles.jsx';
+import { PaymentContainer, FormContainer, Header, NameInput } from './payment.form.styles.jsx';
 import { CartContext } from '../../contexts/cart.ctx';
 import { useContext, useState } from 'react';
+
 
 
 const PaymentForm = () => {
@@ -56,12 +57,21 @@ const PaymentForm = () => {
   return (
     <PaymentContainer>
       
-      <FormContainer onSubmit={PaymentHandler}>
-        <h2>Credit Card Payment</h2>
-        <input onBlur={getNameHandler} type='text' placeholder='Name On Card'></input>
-        <CardElement/> 
+      <FormContainer className='form-container' onSubmit={PaymentHandler}>
+        <Header>Credit Card Payment</Header>
+        <span>
+          Name On Card
+        </span>
+        <NameInput onBlur={getNameHandler} type='text' placeholder='Name On Card'></NameInput>
+        <span>Card Number</span>
+        <CardNumberElement className='card-number'/>
+        <div>
+          <span>Valid</span>
+          <CardExpiryElement/>
+          <span>CCV</span>
+          <CardCvcElement/> 
+        </div>
         
-      {/* <CardElement/> */}
       <Button>Pay Now</Button>
       </FormContainer>
     </PaymentContainer>
